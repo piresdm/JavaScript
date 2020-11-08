@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let usuarios = ['Adriano', 'Marcia', 'José']
+
+        function inserirUsuario(nome){
+
+            let promise = new Promise(function(resolve, reject){//tem esses 2 argumentos.
+
+                setTimeout(()=>{ //usado para simular o delay
+                usuarios.push(nome)
+               
+                    let error = false //Para se der erro> Se quiser testar com erro, é só colocar true aqui
+
+                    if (!error){ //esse ! significa que não teve erro
+                        resolve()
+                    }else{
+                        reject({msg:'Erro de qualquer coisa'})
+                    }
+                }, 1000)
+            })
+            return promise
+   
+        }
+
+        function listarUsuarios(){
+            console.log(usuarios)
+        }
+
+        inserirUsuario('Igor').then(listarUsuarios).catch((error) =>{
+            console.log(error.msg)
+        })
+        //esse then é para quando der resolve e o catch para quando der reject.
+
+    </script>
+</body>
+</html>

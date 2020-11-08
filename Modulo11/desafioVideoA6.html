@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio - Controles vídeo</title>
+    <style>
+        section#container{
+            position:relative;
+        }
+        div#video {
+            text-align: center;
+        }
+
+        div#controles {
+            position: absolute;
+            left: 42%;
+            top: 87%;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="container" onmouseover = "aparecer()" onmouseout="sumir()">
+        <div id="video">
+            <video id="vd" src="img/Dubai - 31956.mp4" width="500px"></video>
+        </div>
+        <div id="controles">
+            <img src="img/menos15.jpg" width="30px" onclick="volta()">
+            <img src="img/mais15.jpg" width="30px" onclick="passa()">
+            <img src="img/menos.jpg" width="30px" onclick="devagar()">
+            <img src="img/mais.jpg" width="30px" onclick="rapido()">
+            <img src="img/play.jpg" width="30px" onclick="play()">
+            <img src="img/stop.jpg" width="35px" onclick="stop()">
+        </div>
+    </section>
+    <script src="desafVid.js"> </script>
+
+</body>
+
+</html>

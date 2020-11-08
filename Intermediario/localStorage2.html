@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="nome"></h1>
+    <input type="text" oninput="atualizar(this)">
+
+
+    <script>
+        onload=function(){ //Sempre que att a pag ele puxa o qu está no storage e bota no h1
+            let nome = localStorage.getItem('nome')
+            let h1 = document.getElementById('nome')
+            h1.innerHTML = nome
+        }
+
+
+        function atualizar(element){ 
+
+            let valor = element.value
+            console.log(valor)  /*Faz ele ir colocando no console tudo que for sendo digitado no input*/
+
+            let h1 = document.getElementById('nome')
+            h1.innerHTML = valor // Faz escrever no H1 tudo que for digitado no input
+
+            localStorage.setItem('nome',valor) /*Sempre que atualizar o valor, salva no localStorage*/
+        }
+
+    </script>
+</body>
+</html>

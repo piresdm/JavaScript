@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> /*Aqui para testar tem que tornar os dois local storages que não estiverem em uso em comentários para funcionar. Ex: se tô salvando, os dois de baixo tem que ficar ocmo comentário*/
+        localStorage.setItem('nome','Igor') //Salva o item
+        
+        let n = localStorage.getItem('nome') //busca o item salvo
+        console.log(n)
+
+        localStorage.removeItem('nome') //exclui o item salvo
+    </script>
+</body>
+</html>

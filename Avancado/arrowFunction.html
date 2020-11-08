@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Função normal
+            function duas(x){
+                console.log(2*x)
+            }
+            duas(7)
+            
+        
+        //Arrow Function
+            
+            let double = x => { //veja que tirou o nome da função e o ()
+                console.log(2*x)
+            }
+            double (5)
+
+            //Se for uma função que no lugar do console.log for return, pode tirar também o return, as {} e o outro (), deixando ela bem mais limpa          
+            let dobro = x => 2 * x //Essa é a função
+            console.log(dobro(3)) //Isso é só a impressão
+
+    </script>
+</body>
+</html>

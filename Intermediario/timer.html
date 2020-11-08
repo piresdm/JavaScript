@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Título</h1>
+    <input onclick="mudarTexto()" type="submit" value="Mudar">
+    
+    <script>
+
+        function mudarTexto(){
+            let h = document.getElementsByTagName('h1')[0]
+            h.innerHTML = 'Novo Título'
+
+            setTimeout(mudarCor,3000) //é o timer, 3000 é pq é em miliseg, ou seja, 3s
+            //Quando clicar, muda o texto, mas a cor só muda depois de 3s 
+            /*clearTimeout para a execução quando você clica. Então se quiser ter a opção de clicar para parar antes de executar, mas depois de ter clicado para executar, pode colocar essa função*/
+        }
+
+        function mudarCor(){
+            let h = document.getElementsByTagName('h1')[0]
+            h.style.color ='blue'
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+       function speakGeneric(){
+           console.log(this.sound) //o this aqui é o dog ou o cat, depende de quem está chamando
+       }
+
+       let dog = {
+           sound:'Au au'
+           speak: speakGeneric
+       }
+
+       let cat = {
+            sound:'Miau'
+            speak: speakGeneric
+       }
+       dog.speak()
+       cat.speak()
+        
+       //bind é um método que toda função tem no JS
+
+       let bindedFunction = speakGeneric.bind(cat)
+       //Você coloca dentro do () o que será considerado o this, pra ele poder executar a speakGeneric, senão ele não vai saber e vai dar erro 
+       
+    </script>
+</body>
+</html>

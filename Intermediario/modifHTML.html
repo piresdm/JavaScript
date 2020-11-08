@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .paragrafo{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Título</h1>
+    <p class="paragrafo" id="p1">Parágrafo1
+        <span>Outro texto</span>
+    </p>
+    <p class="paragrafo"> Parágrafo 2</p>
+    <p>Parágrafo3</p>
+
+
+    <script>
+
+    let p = document.getElementById("p1")
+
+    //formas de alterar
+    p.innerHTML += "Novo conteúdo" //Se não botar o mais ele substitui o texto que está lá por esse.
+    p.innerText += "Conteúdo mais novo"
+    p.textContent += "Mais novo ainda"
+
+    p.className = "" // retira a classe da tag
+    p.style.color = 'blue' //muda style
+
+
+    </script>
+</body>
+</html>

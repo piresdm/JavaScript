@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ola(){
+            console.log('olá')
+        }
+        function saudacao(s,nome){
+            s()
+            console.log(nome)
+        }
+        saudacao(ola,'Igor') //Isso é o callback, uma função sendo chamada dentro de outra.
+
+        //Outro exemplo - Esse mostra o uso do callback, é para quando tem duas coisas que não são síncronas, e você só quer que uma aconteça depois da outra, aí você usa o callback pra garantir a espera.
+
+        let usuarios = ['Adriano', 'Marcia', 'José']
+
+        function inserirUsuario(nome, callback){
+            setTimeout(()=>{ //usado para simular o delay
+                usuarios.push(nome)
+                callback()
+            }, 1000)
+        }
+
+        function listarUsuarios(){
+            console.log(usuarios)
+        }
+
+        inserirUsuario('Igor', listarUsuarios)
+
+    </script>
+</body>
+</html>

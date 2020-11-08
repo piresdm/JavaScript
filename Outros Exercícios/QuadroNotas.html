@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="QuadroNotas.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--Calcule a média de diversas notas digitadas pelo usuário-->
+    <header>
+        <h1>QUADRO DE NOTAS</h1>
+    </header>
+    <div id="container">
+
+        <div id="tabela">
+            <h2>Turma A</h2>
+
+            <ul> </ul>
+
+        </div>
+
+        <div id="inputs">
+            <p> Digite abaixo os dados do aluno </p><br>
+            <label for="texto">Nome:</label>
+            <input id="inputAluno" type="text" name="texto"> <br>
+
+            <label for="nota">Nota:</label>
+            <input id="inputNota" type="number" name="nota" min="0" max="10"><br>
+
+            <input id="add" type="submit" value="INCLUIR">
+        </div>
+
+        <div id="divMedia">
+            <h3 id="media">Média da turma: </h3>
+        </div>
+
+    </div>
+
+    <script>
+
+        let tabela = document.querySelector('#tabela ul')
+        let inputAluno = document.getElementById('inputAluno')
+        let inputNota = document.getElementById('inputNota')
+        let submit = document.getElementsByTagName('input')[2]
+        let vetorNotas = []
+
+        var lista = JSON.parse(localStorage.getItem('list')) || []
+
+        function renderizar() {
+
+            tabela.innerHTML = ''
+
+            for (let i = 0; i < lista.length; i++) {
+
+                var elemento = document.createElement('li')
+                var texto = document.createTextNode(lista[i].nome + ' ' + lista[i].nota)
+
+                let link = document.createElement('a')
+                link.setAttribute('href', '#')
+                let textolink = document.createTextNode('X')
+
+                link.setAttribute('onclick', 'excluir(' + i + ')') //Esse i é quem indica qual é para ser escolhido, não precisa do indexOf, ele já dá a posição.
+
+                tabela.appendChild(elemento)
+                link.appendChild(textolink)
+                elemento.appendChild(texto)
+                elemento.appendChild(link)
+            }
+            imprimirMedia()
+        }
+
+        function add() {
+
+            lista.push({
+                nome: inputAluno.value,
+                nota: Number(inputNota.value)
+            })
+
+            vetorNotas.push(Number(inputNota.value))
+
+            inputAluno.value = ''
+            inputNota.value = ''
+            renderizar()
+            salvarStorage()
+        }
+        submit.onclick = add
+
+        function excluir(posicao) {
+            lista.splice(posicao, 1) /* Método que remove uma quantidade de itens do array baseado na posição dada. A posição vai ser a que você passar e o 1 sginifica que ele remove um item naquela posição. */
+            vetorNotas.splice(posicao)
+
+            renderizar()
+            salvarStorage() // Se liga que tem que chamar o save aqui na exclusão também
+            imprimirMedia()
+        }
+
+        function salvarStorage() {
+            localStorage.setItem('list', JSON.stringify(lista))
+        }
+
+        function calcularMedia() {
+
+            let soma = 0
+            let valorMedia
+            for (let nota of vetorNotas) {
+                soma += nota
+            }
+
+            if (vetorNotas.length == '') { //Isso tirou o NaN que tava aparecendo no início   
+                valorMedia = 0
+            } else {
+                valorMedia = soma / (vetorNotas.length)
+            }
+
+            return valorMedia.toFixed(2)
+        }
+        console.log(calcularMedia())
+
+        function salvarMedia() {
+            mediaSalva = localStorage.setItem('valorMedia', calcularMedia())
+            return mediaSalva
+        }
+
+        function imprimirMedia() {
+
+            let espacoMedia = document.getElementById('media')
+            let puxarMediaSalva = localStorage.getItem('valorMedia', salvarMedia())
+            espacoMedia.innerText = `Média da turma: ${puxarMediaSalva}`
+        }
+        renderizar()
+
+    </script>
+
+</body>
+
+</html>

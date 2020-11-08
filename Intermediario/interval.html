@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Título</h1>
+    <input onclick="iniciar()" type="submit" value="Iniciar">
+    <input onclick="parar()" type="submit" value="Parar">
+
+    <script>
+
+        var numero = 0
+        var interval // tem que gravar a variável aqui fora para puxar no clear
+
+        function atualizarTexto(){
+            let h = document.getElementsByTagName('h1')[0]
+            h.innerHTML += " " + numero
+            numero++
+        }
+
+        function iniciar(){
+            interval = setInterval(atualizarTexto,1000) //A cada 1s ele add um número no título
+        }
+
+        function parar(){
+            clearInterval(interval) //Para a execução
+        }
+
+    </script>
+</body>
+</html>

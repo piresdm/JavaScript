@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="t1">Título 1</h1>
+    <h2 id="t2">Título 2</h2>
+
+    <script>
+
+        let t1 = document.getElementById('t1')
+        let t2 = document.getElementById('t2')
+
+        t1.onclick = colocarEmMaiusculo
+        t2.onclick = colocarEmMaiusculo
+
+        function colocarEmMaiusculo(){
+            this.innerHTML = this.innerHTML.toUpperCase()
+        } 
+        /*Como usei aqui o this ao invés de criar uma variável e usar getelement pra ela, posso usar a mesma função para os 2 ts. Se tivesse feito com a variável, ia ter que ser uma função para cada.
+        A outra forma que estava falando seria:
+
+        function colocarEmMaiusculo(){
+            let t1 = document.getElementById('t1')
+            t1.innerHTML = t1.innerHTML.toUpperCase()
+        }
+        */
+        
+
+
+    </script>
+</body>
+</html>

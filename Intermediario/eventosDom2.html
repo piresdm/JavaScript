@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 200px;
+            margin-bottom: 25px;
+        }
+
+        div {
+            display: inline;
+            padding: 10px;
+            font-size: 2rem;
+            background-color: cornflowerblue;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body onload="console.log('Página completamente carregada')">
+
+    <img src="img/controle.jpg" alt="controle">
+    <br>
+    <div onmouseover="onOver(this)" onmouseout="onOut(this)">Click</div>
+    <p onmouseover="onOver(this)" onmouseout="onOut(this)">Texto para teste</p>
+
+
+    <script>
+        function onOver(elemento) { //Muda a cor quando o mouse passar por cima.
+            elemento.style.backgroundColor = 'red'
+        }
+        function onOut(elemento) { //Para quando o mouse sair, voltar para a cor original.
+            elemento.style.backgroundColor = 'cornflowerblue'
+        }
+    </script>
+</body>
+
+</html>

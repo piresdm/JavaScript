@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        
+        function novoAluno(nome,idade){
+            return {nome,idade}
+        }
+
+        let alunos = [
+            novoAluno('Mario', 23),
+            novoAluno('José', 45),
+            novoAluno('Marcia', 29),
+            novoAluno('João', 35)
+        ]
+        for(let aluno of alunos ){  //sem filter, poderia fazer assim. Ele retorna os nomes impressos no console
+            if(aluno.idade < 30 ){
+                console.log(aluno.nome)
+            }
+        }
+
+        //com filter
+
+        function temMenosDe30(aluno){
+            return aluno.idade < 30 // Se tem menos de 30 ele retorna true
+        }
+        let alunosComMenosde30 = alunos.filter(temMenosDe30)
+        console.log(alunosComMenosde30) // Aqui ele reotrna o array com quem tem menos de 30
+
+
+    </script>
+</body>
+</html>

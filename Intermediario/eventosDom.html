@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            display: inline-block;
+            padding: 20px;
+            font-size:2rem;
+            background-color: blue ;
+            color: aliceblue;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 onclick="console.log('H1 foi clicado')">Clique em mim</h1>
+    <h2 onclick="h2click()">Clique em mim</h2>
+    <h2 onclick="this.style.color='red'">Clique em mim</h2> <!-- o this faz mexer no proprio elemento-->
+    
+    <h3>Clique em mim</h3>
+    <input type="text" onchange="changeH3()"> <!--inclui um H3 sempre que você escreve algo no input, depois retira o foco dele-->
+
+    <h4>Clique em mim</h4>
+    <input id="texto" type="text" onchange="changeH4()"> <!--Coloca o que escrever no input dentro do h4-->
+    
+    <div onclick="hideH1()">
+        Click
+
+    </div>
+
+    <script>
+        function h2click() {
+            console.log('Executando a função')
+        }
+        
+        function changeH3() {
+            let h3 = document.getElementsByTagName('h3')[0]
+            console.log(h3)
+        }
+
+        function changeH4() {
+            let h4 = document.getElementsByTagName('h4')[0]
+            let input = document.getElementById('texto')
+            h4.innerText = input.value
+            console.log(h4)
+        }
+
+        function hideH1(){
+            let h1 = document.getElementsByTagName('h1')[0]
+            h1.style.display = 'none'
+        }
+    </script>
+</body>
+</html>

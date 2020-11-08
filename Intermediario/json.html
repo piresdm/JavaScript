@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let a = {
+            nome: "igor",
+            nota:8.5
+        }
+        let b = JSON.stringify(a);// Pega o objeto JSON e transforma em uma string
+
+        let a2 = '{"nome":"fabio", "nota":7.8}'
+        let b2 = JSON.parse(a2) //Pega uma string e transforma em um objeto JSON
+
+
+        console.log(a)
+        console.log(b)
+        console.log(a2)
+        console.log(b2)
+
+        console.log(b2.nome)/*Se usar a2 ele não traz o nome pq é uma string, mas como b2 já virou objeto, ele traz certo*/
+
+
+    </script>
+</body>
+</html>

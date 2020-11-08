@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .paragrafo{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Título</h1>
+    <p class="paragrafo" id="p1">Parágrafo1</p>
+    <p class="paragrafo"> Parágrafo 2</p>
+    <p>Parágrafo3</p>
+
+    <script>
+        //Aula Acessando elementos do HTML com JS
+
+        console.log(document.footer) //só acessa assim body e head
+
+        let p1 = document.getElementById('p1')
+        console.log(p1)
+
+        let paragrafos = document.getElementsByClassName('paragrafo') //pega o array com toda a classe
+        console.log(paragrafos)
+        //ou
+        for(let p of paragrafos){ //vai imprimir todos os parágrafos que estão na classe
+            console.log(p)
+        }
+
+        let th = document.getElementsByTagName('h1')
+        console.log(th)
+        console.log(th[0])
+
+    </script>
+</body>
+
+</html>

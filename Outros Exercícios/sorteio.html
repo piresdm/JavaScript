@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="resultado"></h1>
+    <input type="submit" value="Sortear" onclick = "sortear()">
+
+    <h1 id="pessoa"></h1>
+    <button onclick="selecionar()">Sortear</button>
+
+    <script>
+        function sortear() {
+            let np = 1000
+            let ns = Math.round(Math.random() * np)
+            document.getElementById('resultado').innerHTML = ns
+        }
+
+        let pessoas = ['Igor', 'Paulo', 'Andréa', 'Ricardo', 'Amanda', 'Daniel']
+        
+        function selecionar() {
+           let np = pessoas.length
+           let ns = Math.floor(Math.random() * np)
+           document.getElementById('pessoa').innerHTML = pessoas[ns]
+
+        }
+
+    </script>
+</body>
+
+</html>

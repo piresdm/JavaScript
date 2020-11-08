@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currascômetro</title>
+    <style>
+        div#churras {
+            width: 300px;
+            /*se não colocar o height, qd o JS incluir a parte da div resultado ele ajusta automatico a altura, se colocar aí dá problema*/
+            background-color: rgb(155, 192, 241);
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            padding-bottom: 10px;
+            color: white;
+        }
+
+        input {
+            margin-bottom: 5px;
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        div#resultado{
+            text-align: left;
+        }
+        h3{
+            margin-bottom: 0px;
+            /*Mesmo sem existir ainda na div, quando incluir ele puxa essa config*/
+        }
+    </style>
+</head>
+
+<body>
+    <div id="churras">
+        <h1>Churrascômetro</h1>
+        <input id="adultos" type="number" name="adultos" placeholder="Adultos">
+        <input id="criancas" type="number" name="criancas" placeholder="Crianças">
+        <input id="duracao" type="number" name="duracao" placeholder="Duração (h)"> <input type="button"
+            value="Calcular" onclick="calcular()">
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        let resultado = document.getElementById('resultado')
+        let adultos = document.getElementById('adultos')
+        let criancas = document.getElementById('criancas')
+        let duracao = document.getElementById('duracao')
+
+        function calcular() {
+            let adul = Number(adultos.value)
+            let crian = Number(criancas.value)
+            let dura = Number(duracao.value)
+
+            if (dura <= 0) {
+                alert('A festa não pode durar 0 horas ou menos')
+            } else if (adul < 0 || crian < 0) {
+                alert('O número mínimo de adultos ou crianças na festa deve ser 0')
+            } else if (duracao.value.length == 0 || adultos.value.length == 0 || criancas.value.length == 0) {
+                alert('Você precisa preencher todos os dados solicitados')
+            } else if (dura > 6) {
+                let carne = 650 * adul + 325 * crian
+                let cerv = 200 * adul
+                let bebidas = 1500 * adul + 750 * crian
+                resultado.innerHTML = `<h3> Serão necessários para essa festa: </h3><br>`
+                resultado.innerHTML += `Carne: ${carne/1000} kgs <br>`
+                resultado.innerHTML += `Cerveja: ${cerv/1000} litros <br>`
+                resultado.innerHTML += `Agua e Refrigerante: ${bebidas/1000} litros<br>`
+                /*para os números não ficarem com vírgula, usou grama em cima e dividiu por 1000 em baixo. É bom fazer assim e só se precisar de mais arredondamento usa um Math.ceil, por exemplo, senão ele pode arredondar demais. Ex: Se fizer em KG e L já usando o math e for 1.2 de carne, ele já arredonda pra 2kg de carne*/
+                
+            } else {
+                let carne = 400 * adul + 200 * crian
+                let cerv = 1200 * adul
+                let bebidas = 1000 * adul + 500 * crian
+
+                resultado.innerHTML = `<h3>Serão necessários para essa festa:</h3><br>`
+                resultado.innerHTML += `Carne: ${carne/1000} kgs <br>`
+                resultado.innerHTML += `Cerveja: ${cerv/1000} litros <br>`
+                resultado.innerHTML += `Agua e Refrigerante: ${bebidas/1000} litros <br>`
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

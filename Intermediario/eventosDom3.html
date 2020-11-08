@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script> //script aqui em cima (no head ou no topo do body) tem que botar o onload pra funcionar
+
+        /*function loaded(){   
+            let t = document.getElementById('titulo')
+            t.innerHTML = 'rrr'
+        }*/
+        
+        //criando os eventos on dentro do próroprio JS 
+
+        function loaded(){
+            let t = document.getElementById('titulo')
+            /*t.onclick = mudartext   - para cria o evento (onclick, mouseover,mouseout...) pelo JS*/
+            t.addEventListener('click', mudartext) //outra forma de criar o evento pelo JS
+            t.addEventListener('mouseout', mouseout) /*não coloca o () no nome da função senão ele vai executar ela e aqui só queremos fazer a conexão, quando clicar é que deve executar.*/
+        }
+        /*Tem uma aula (2 após essa) só mostrando a diferença de criar os eventos pelo HTML ou pelo JS, pelo que vi é melhor puxar pelo JS, porque algumas coisas já vão direto por ele e não vão pelo HTML*/
+
+
+        function mudartext(){
+            this.innerHTML = 'Novo texto'
+        }
+        function mouseout(){
+            this.innerHTML = 'Cursor fora do texto'
+        }
+
+        
+                
+    </script>
+</head>
+<body onload="loaded()">
+
+    <h1 id="titulo">teste</h1>
+    
+</body>
+</html>
