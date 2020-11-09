@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior Número</title>
+    <style>
+        :root {
+            font-size: 90%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+            color: #606060;
+        }
+
+        body {
+            background-color: yellowgreen;
+        }
+
+        #container {
+            background-color: white;
+            width: 80vw;
+            height: 70vh;
+            max-width: 600px;
+            border-radius: 5px;
+            margin: 5rem auto;
+            padding: 2rem;
+            font-size: 1.3rem;
+        }
+       
+        h1 {
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #d1d1d1;
+        }
+
+        p {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        #divInput{
+            margin-top: 2rem;
+            margin-left: 1rem;
+            font-size:1.3rem ;
+        }
+
+        input {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            border: none;
+            background-color: whitesmoke;
+            padding: 0.4rem;
+            width: 10rem;
+            font-size: 1rem;
+        }
+
+        #add {
+            padding: .4rem 1.0rem;
+            border-radius: 5px;
+            border: none;
+            margin: 1rem auto;
+            color: white;
+            background-color: rgb(71, 71, 73);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        #add:hover {
+            background-color: #707070;
+            border: none;
+        }
+        #JS{
+            opacity: 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        #resultado{
+            font-weight: bold; 
+            margin-top: 2rem;
+            font-size: 2rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Maior Número</h1>
+        <p>Digite quantos números positivos quiser e, ao fim, você terá qual foi o maior deles.</p>
+        
+        <div id="divInput">
+            <label for="inputNum">Digite um número: </label>
+            <input id="inputNum" type="text" min="0">
+            <button type="submit" id="add" onclick="imprimir()">OK</button>
+        </div>
+        
+        <div id="JS">
+            O maior número digitado foi:
+            <div id="resultado"></div>
+            
+        </div>
+
+    </div>
+
+    <script>
+        let inputNum = document.getElementById('inputNum')
+        let resultado = document.getElementById('resultado')
+        let num = 0 
+     
+        function guardarValor(){
+            
+            valorInput = Number(inputNum.value)
+            
+            if (valorInput > num){
+                num =  valorInput
+            } 
+            inputNum.value = ''
+        }
+        
+        function imprimir(){
+            guardarValor()
+            JS.style.opacity = '1'
+            resultado.innerHTML = `${num}` 
+        }
+
+    </script>
+</body>
+
+</html>
