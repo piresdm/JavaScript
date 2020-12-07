@@ -91,7 +91,7 @@
 
         function excluir(posicao) {
             lista.splice(posicao, 1) /* Método que remove uma quantidade de itens do array baseado na posição dada. A posição vai ser a que você passar e o 1 sginifica que ele remove um item naquela posição. */
-            vetorNotas.splice(posicao)
+            vetorNotas.splice(posicao,1)
 
             renderizar()
             salvarStorage() // Se liga que tem que chamar o save aqui na exclusão também
